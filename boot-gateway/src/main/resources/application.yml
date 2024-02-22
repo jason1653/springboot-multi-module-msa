@@ -1,0 +1,16 @@
+
+server:
+  port: 8080
+
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: boot-gateway
+  cloud:
+    gateway:
+      routes:z
+        - id: boot-member
+          uri: http://localhost:8081
+          predicates:
+            - Path=/hello
