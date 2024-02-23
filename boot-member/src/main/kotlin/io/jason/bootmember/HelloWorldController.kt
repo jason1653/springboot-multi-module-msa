@@ -1,5 +1,8 @@
 package io.jason.bootmember
 
+import io.jason.commonutils.response.BaseResponse
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -9,7 +12,11 @@ import org.springframework.web.bind.annotation.RestController
 class HelloWorldController {
 
     @RequestMapping("/hello")
-    fun hello(): String {
-        return "Hello World"
+    fun hello(): ResponseEntity<BaseResponse<String>> {
+
+        return BaseResponse.success(
+            HttpStatus.CREATED,
+            "TEST"
+        )
     }
 }
