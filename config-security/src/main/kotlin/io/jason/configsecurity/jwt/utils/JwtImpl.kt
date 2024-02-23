@@ -3,10 +3,12 @@ package io.jason.configsecurity.jwt.utils
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.jason.configsecurity.jwt.dto.GenerateTokenDto
 import io.jsonwebtoken.Jwts
+import io.jsonwebtoken.io.Decoders
 import io.jsonwebtoken.io.Encoders
 import org.springframework.stereotype.Component
 import java.time.Duration
 import java.util.*
+import javax.crypto.spec.SecretKeySpec
 
 
 @Component
@@ -36,13 +38,21 @@ class JwtImpl : Jwt {
         val generateTokenDTO = GenerateTokenDto(secretString, token, validityLong)
 
         return generateTokenDTO
-
-
     }
 
-    override fun decodeToken(subject: String, key: String, token: String) {
-        val secretKey = Encoders.BASE64
+    override fun <T> decodeToken(subject: String, key: String, token: String, clazz: Class<T>) {
+        val decodeKey = Decoders.BASE64.decode(key)
+        val secretKey = SecretKeySpec(decodeKey, 0, decodeKey.size, "HmacSHA256")
         val jwts = Jwts.parser()
+            .verifyWith(secretKey)
             .build()
+
+        val data = jwts.parseSignedClaims(token).payload
+        val decodeString = objectMapper.writeValueAsString(data)
+        val decodeDto = objectMapper.readValue(decodeString, clazz)
+
+
+
+        println(jwts)
     }
 }

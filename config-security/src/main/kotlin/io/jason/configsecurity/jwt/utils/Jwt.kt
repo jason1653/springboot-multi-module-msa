@@ -5,6 +5,5 @@ import java.time.Duration
 
 interface Jwt {
     fun <T> generateToken(subject: String, dto: T, duration: Duration): GenerateTokenDto
-
-    fun decodeToken(subject: String, key: String, token: String)
+    fun <T> decodeToken(subject: String, key: String, token: String, clazz: Class<T>)
 }
