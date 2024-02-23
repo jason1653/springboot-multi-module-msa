@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 class BaseExceptionHandler {
     @ExceptionHandler(BaseException::class)
     fun handleBaseException(ex: BaseException): ResponseEntity<BaseResponse<String>> {
-        println("BaseException")
         val response = BaseResponse.fail(
             ex.status,
             ex.message ?: "Not Found",
