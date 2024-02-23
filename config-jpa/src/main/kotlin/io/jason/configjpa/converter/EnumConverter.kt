@@ -1,4 +1,4 @@
-package io.jason.configjpa.utils
+package io.jason.configjpa.converter
 
 import jakarta.persistence.AttributeConverter
 import jakarta.persistence.Converter
