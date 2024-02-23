@@ -12,7 +12,7 @@ class EnumConverter <T : EnumValue>(
         return attribute.getValue()
     }
 
-    override fun convertToEntityAttribute(dbData: String?): T {
-        TODO("Not yet implemented")
+    override fun convertToEntityAttribute(dbData: String?): T? {
+        return enumClass.enumConstants?.firstOrNull { it.getValue() == dbData }
     }
 }
