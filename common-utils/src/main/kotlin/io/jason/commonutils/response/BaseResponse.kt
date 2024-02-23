@@ -1,5 +1,6 @@
 package io.jason.commonutils.response
 
+import io.jason.commonutils.exception.BaseError
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
@@ -17,6 +18,30 @@ class BaseResponse<T>(
                     message = message,
                     status = status.value(),
                     body = body,
+                ),
+                status
+            )
+        }
+
+        fun fail(baseError: BaseError): ResponseEntity<BaseResponse<String>> {
+            return ResponseEntity(
+                BaseResponse(
+                    code = baseError.code,
+                    message = baseError.message,
+                    status = baseError.status.value(),
+                    body = "",
+                ),
+                baseError.status
+            )
+        }
+
+        fun fail(status: HttpStatus, message: Any, code: String = ""): ResponseEntity<BaseResponse<String>> {
+            return ResponseEntity(
+                BaseResponse(
+                    code = code,
+                    message = message,
+                    status = status.value(),
+                    body = "",
                 ),
                 status
             )

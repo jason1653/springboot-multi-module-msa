@@ -5,3 +5,6 @@ server:
 spring:
   application:
     name: boot-member
+
+aes:
+  key: "Test1234"

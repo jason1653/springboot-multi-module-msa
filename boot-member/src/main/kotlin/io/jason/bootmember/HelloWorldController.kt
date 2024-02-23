@@ -1,5 +1,6 @@
 package io.jason.bootmember
 
+import io.jason.commonutils.exception.BaseException
 import io.jason.commonutils.response.BaseResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -14,6 +15,8 @@ class HelloWorldController {
     @RequestMapping("/hello")
     fun hello(): ResponseEntity<BaseResponse<String>> {
 
+
+        throw BaseException(TestError.TEST_ERROR)
         return BaseResponse.success(
             HttpStatus.CREATED,
             "TEST"
