@@ -1,4 +1,4 @@
-package io.jason.configsecurity
+package io.jason.configsecurity.config
 
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties
 import org.jasypt.encryption.StringEncryptor

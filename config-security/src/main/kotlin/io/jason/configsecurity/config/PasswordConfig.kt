@@ -1,4 +1,4 @@
-package io.jason.configsecurity
+package io.jason.configsecurity.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
