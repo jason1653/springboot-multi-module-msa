@@ -1,4 +1,4 @@
-package io.jason.bootmember
+package io.jason.bootbase
 
 import io.jason.commonresponse.exception.BaseException
 import io.jason.commonresponse.response.BaseResponse
@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 
+
 @RestController
 @RequestMapping("/")
 class HelloWorldController {
+
+
 
     @RequestMapping("/hello")
     fun hello(): ResponseEntity<BaseResponse<String>> {

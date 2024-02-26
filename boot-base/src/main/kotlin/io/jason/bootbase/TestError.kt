@@ -1,4 +1,4 @@
-package io.jason.bootmember
+package io.jason.bootbase
 
 import io.jason.commonresponse.exception.BaseError
 import org.springframework.http.HttpStatus
