@@ -1,8 +1,9 @@
 package io.jason.bootbase
 
+import io.jason.commonlogger.annotation.ElapseLoggable
+import io.jason.commonlogger.util.LoggerUtil
 import io.jason.commonresponse.exception.BaseException
 import io.jason.commonresponse.response.BaseResponse
-import io.jason.configsecurity.logger.LoggerUtil
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
@@ -17,7 +18,9 @@ class HelloWorldController {
 
     private val logger = LoggerUtil()
 
+
     @RequestMapping("/hello")
+    @ElapseLoggable
     fun hello(): ResponseEntity<BaseResponse<String>> {
 
         logger.info("Hello World")
@@ -28,6 +31,8 @@ class HelloWorldController {
             "TEST"
         )
     }
+
+    @ElapseLoggable
 
     @RequestMapping("/hello2")
     fun hello2(hello2Dto: Hello2Dto): String {

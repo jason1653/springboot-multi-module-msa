@@ -6,6 +6,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     implementation(project(":config-security"))
+    implementation(project(":common-logger"))
     implementation(project(":common-response"))
 }
 

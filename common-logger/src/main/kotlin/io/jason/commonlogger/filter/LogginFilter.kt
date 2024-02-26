@@ -1,6 +1,6 @@
-package io.jason.configsecurity.filter
+package io.jason.commonlogger.filter
 
-import io.jason.configsecurity.logger.LoggerUtil
+import io.jason.commonlogger.util.LoggerUtil
 import jakarta.servlet.Filter
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletRequest
@@ -21,18 +21,18 @@ class LogginFilter : Filter {
         val wrapper = ContentCachingRequestWrapper(req)
 
         val startTime = System.currentTimeMillis()
-        logger.info("[S] ---------- [${req.method}] ${req.requestURI} ----------")
+        logger.info("[Controller - S] ---------- [${req.method}] ${req.requestURI} ----------")
 
         val requestBody = wrapper.contentAsByteArray.decodeToString()
         if(requestBody.isNotEmpty()) {
-            logger.info("|- Body: $requestBody")
+            logger.info("[Request-Body]: $requestBody")
         }
 
 
         // 쿼리 문자열 로깅
         val queryString = request.queryString?.let { "$it" } ?: ""
         if(queryString.isNotEmpty()) {
-            logger.info("|- Query: $queryString")
+            logger.info("[Request-Query]: $queryString")
         }
 
         chain?.doFilter(req, res)
@@ -40,7 +40,7 @@ class LogginFilter : Filter {
         val endTime = System.currentTimeMillis()
         val duration = endTime - startTime
 
-        logger.info("[E] ---------- [${req.method}] ${req.requestURI} ---------- $duration ms")
+        logger.info("[Controller - E] ---------- [${req.method}] ${req.requestURI} ---------- $duration ms")
     }
 
 }
