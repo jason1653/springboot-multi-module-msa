@@ -1,7 +1,7 @@
 package io.jason.bootmember
 
-import io.jason.commonutils.exception.BaseException
-import io.jason.commonutils.response.BaseResponse
+import io.jason.commonresponse.exception.BaseException
+import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.RequestMapping

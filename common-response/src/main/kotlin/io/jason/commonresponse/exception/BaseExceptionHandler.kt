@@ -1,7 +1,6 @@
-package io.jason.commonutils.exception
+package io.jason.commonresponse.exception
 
-import io.jason.commonutils.response.BaseResponse
-import org.springframework.http.HttpStatus
+import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice

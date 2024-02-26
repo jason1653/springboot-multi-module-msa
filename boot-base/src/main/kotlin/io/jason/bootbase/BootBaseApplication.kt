@@ -1,14 +1,13 @@
-package io.jason.bootmember
+package io.jason.bootbase
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 
-@SpringBootApplication()
+@SpringBootApplication
 @ComponentScan("io.jason.**")
-
-class BootMemberApplication
+class BootBaseApplication
 
 fun main(args: Array<String>) {
-    runApplication<BootMemberApplication>(*args)
+    runApplication<BootBaseApplication>(*args)
 }

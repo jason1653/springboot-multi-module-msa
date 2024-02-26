@@ -1,4 +1,4 @@
-package io.jason.commonutils.exception
+package io.jason.commonresponse.exception
 
 import org.springframework.http.HttpStatus
 

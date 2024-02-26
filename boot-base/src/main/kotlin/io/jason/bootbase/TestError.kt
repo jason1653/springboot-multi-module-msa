@@ -1,6 +1,6 @@
 package io.jason.bootmember
 
-import io.jason.commonutils.exception.BaseError
+import io.jason.commonresponse.exception.BaseError
 import org.springframework.http.HttpStatus
 
 enum class TestError(

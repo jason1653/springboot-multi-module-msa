@@ -1,6 +1,6 @@
-package io.jason.commonutils.response
+package io.jason.commonresponse.response
 
-import io.jason.commonutils.exception.BaseError
+import io.jason.commonresponse.exception.BaseError
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
