@@ -8,6 +8,7 @@ import jakarta.servlet.ServletResponse
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.stereotype.Component
+import org.springframework.web.util.ContentCachingRequestWrapper
 
 @Component
 class LogginFilter : Filter {
@@ -17,8 +18,22 @@ class LogginFilter : Filter {
         val req = request as HttpServletRequest
         val res = response as HttpServletResponse
 
+        val wrapper = ContentCachingRequestWrapper(req)
+
         val startTime = System.currentTimeMillis()
         logger.info("[S] ---------- [${req.method}] ${req.requestURI} ----------")
+
+        val requestBody = wrapper.contentAsByteArray.decodeToString()
+        if(requestBody.isNotEmpty()) {
+            logger.info("|- Body: $requestBody")
+        }
+
+
+        // 쿼리 문자열 로깅
+        val queryString = request.queryString?.let { "$it" } ?: ""
+        if(queryString.isNotEmpty()) {
+            logger.info("|- Query: $queryString")
+        }
 
         chain?.doFilter(req, res)
 
