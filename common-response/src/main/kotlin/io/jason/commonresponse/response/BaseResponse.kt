@@ -1,8 +1,10 @@
 package io.jason.commonresponse.response
 
+import io.jason.commonresponse.enums.BaseResponseSuccessEnum
 import io.jason.commonresponse.exception.BaseError
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+
 
 class BaseResponse<T>(
     val code: String = "",
@@ -10,16 +12,19 @@ class BaseResponse<T>(
     val status: Int,
     val body: T,
 ) {
+
+
+
     companion object {
-        fun <T> success(status: HttpStatus, body: T, message: Any = "", code: String = ""): ResponseEntity<BaseResponse<T>> {
+        fun <T> success(status: BaseResponseSuccessEnum, body: T, message: Any = "", code: String = ""): ResponseEntity<BaseResponse<T>> {
             return ResponseEntity(
                 BaseResponse(
                     code = code,
                     message = message,
-                    status = status.value(),
+                    status = status.httpStatus.value(),
                     body = body,
                 ),
-                status
+                status.httpStatus
             )
         }
 
@@ -47,4 +52,6 @@ class BaseResponse<T>(
             )
         }
     }
+
+
 }

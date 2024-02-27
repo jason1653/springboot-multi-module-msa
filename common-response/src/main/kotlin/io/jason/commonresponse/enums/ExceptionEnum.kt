@@ -1,7 +1,7 @@
-package io.jason.commonresponse.exception
+package io.jason.commonresponse.enums
 
+import io.jason.commonresponse.exception.BaseError
 import org.springframework.http.HttpStatus
-import org.springframework.http.HttpStatusCode
 
 enum class ExceptionEnum(
     override val status: HttpStatus,

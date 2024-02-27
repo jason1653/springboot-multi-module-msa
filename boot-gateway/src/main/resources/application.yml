@@ -9,8 +9,8 @@ spring:
     name: boot-gateway
   cloud:
     gateway:
-      routes:z
-        - id: boot-member
+      routes:
+        - id: boot-base
           uri: http://localhost:8081
           predicates:
-            - Path=/hello
+            - Path=/

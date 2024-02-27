@@ -2,7 +2,8 @@ package io.jason.bootbase
 
 import io.jason.commonlogger.annotation.ElapseLoggable
 import io.jason.commonlogger.util.LoggerUtil
-import io.jason.commonresponse.exception.BaseException
+import io.jason.commonresponse.enums.BaseResponseSuccessEnum
+import io.jason.commonresponse.exception.BaseErrorException
 import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -25,18 +26,27 @@ class HelloWorldController {
 
         logger.info("Hello World")
 
-        throw BaseException(TestError.TEST_ERROR)
+
+//        throw BaseErrorException(
+//            HttpStatus.BAD_REQUEST,
+//            "TEST_ERROR",
+//            "TEST_ERROR"
+//        )
         return BaseResponse.success(
-            HttpStatus.CREATED,
+            BaseResponseSuccessEnum.OK,
             "TEST"
         )
+
+
     }
 
     @ElapseLoggable
-
     @RequestMapping("/hello2")
-    fun hello2(hello2Dto: Hello2Dto): String {
-        return "OK"
+    fun hello2(hello2Dto: Hello2Dto): ResponseEntity<BaseResponse<String>> {
+        return BaseResponse.success(
+            BaseResponseSuccessEnum.OK,
+            ""
+        )
     }
 
     @RequestMapping("/hello3/{id}")

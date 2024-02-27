@@ -28,8 +28,8 @@ class JwtTest
 
     @Test
     fun `token to decode`() {
-        val token = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlck5hbWUiOiJqYXNvbiIsImlzcyI6Imphc29uIiwiaWF0IjoxNzA4Njc0NjA4LCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzA4NzEwNjA4fQ.joAIiYW8jBlfg5VitYd-8sMvERwea6da8MUA11UCL9E"
-        val secretKey = "txGWnBLyBTaCq9PDzEWpL8U9Dw0a0vopD39rQ7Rb/RM="
+        val token = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlck5hbWUiOiJqYXNvbiIsImlzcyI6Imphc29uIiwiaWF0IjoxNzA5MDAyMzI1LCJzdWIiOiJ0ZXN0IiwiZXhwIjoxNzA5MDM4MzI1fQ.YtXwxt4dM1mqvqF3nS9UwCBPtFyAFLYg6wdhttBPNyY"
+        val secretKey = "2PRbTF4u9vKaX4M987wyusJb6yUq2itDJdqHFmFzS4U="
         jwt.decodeToken("test", secretKey, token, UserData2::class.java)
     }
 }

@@ -1,5 +1,6 @@
 package io.jason.commonresponse.exception
 
+import io.jason.commonresponse.enums.ExceptionEnum
 import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

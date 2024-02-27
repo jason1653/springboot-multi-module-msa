@@ -17,4 +17,14 @@ class BaseExceptionHandler {
         )
         return response
     }
+
+    @ExceptionHandler(BaseErrorException::class)
+    fun handleBaseErrorException(ex: BaseErrorException): ResponseEntity<BaseResponse<String>> {
+        val response = BaseResponse.fail(
+            ex.status,
+            ex.message ?: "Internal Server Error",
+            ex.code
+        )
+        return response
+    }
 }

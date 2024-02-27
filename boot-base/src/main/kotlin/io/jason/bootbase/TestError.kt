@@ -4,9 +4,9 @@ import io.jason.commonresponse.exception.BaseError
 import org.springframework.http.HttpStatus
 
 enum class TestError(
-    override val code: String,
-    override val status: HttpStatus,
-    override val message: String
-) : BaseError {
+    val code: String,
+    val status: HttpStatus,
+    val message: String
+)  {
     TEST_ERROR("CODE_ERROR", HttpStatus.BAD_REQUEST, "TEST_ERROR")
 }
