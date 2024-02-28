@@ -1,8 +1,8 @@
-package io.jason.bootbase.adapter.`in`
+package io.jason.bootbase.adapter.rest
 
-import io.jason.bootbase.domain.port.`in`.CreateUserCommand
-import io.jason.bootbase.domain.port.`in`.CreateUserCommandResult
-import io.jason.bootbase.domain.port.`in`.UserCommandUseCase
+import io.jason.bootbase.application.port.`in`.CreateUserCommand
+import io.jason.bootbase.application.dto.CreateUserCommandDTO
+import io.jason.bootbase.application.port.`in`.UserCommandUseCase
 import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -16,7 +16,7 @@ class UserController(
     private val userCommandUseCase: UserCommandUseCase
 ) {
     @PostMapping
-    fun createUser(): ResponseEntity<BaseResponse<CreateUserCommandResult>> {
+    fun createUser(): ResponseEntity<BaseResponse<CreateUserCommandDTO>> {
         val command = CreateUserCommand(
             userId = "test"
         )

@@ -1,4 +1,4 @@
-package io.jason.bootbase.domain.port.`in`
+package io.jason.bootbase.application.port.`in`
 
 data class CreateUserCommand(
     val userId: String = ""

@@ -1,4 +1,4 @@
-package io.jason.bootbase.domain.model
+package io.jason.bootbase.application.domain.model
 
 import jakarta.persistence.*
 import java.time.LocalDateTime
