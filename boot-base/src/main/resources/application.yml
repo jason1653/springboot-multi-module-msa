@@ -5,6 +5,21 @@ server:
 spring:
   application:
     name: boot-base
-
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.244:3306/prlo?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: pgsystem
+    password: pgsystem7587!
+  jpa:
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        highlight_sql: true
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
 aes:
   key: "Test1234"

@@ -7,10 +7,13 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Primary
 import org.springframework.http.converter.HttpMessageConverter
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.EnableWebMvc
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 
 
 @Configuration
+@EnableWebMvc
 class WebServerConfig : WebMvcConfigurer {
     @Bean
     @Primary
@@ -19,5 +22,14 @@ class WebServerConfig : WebMvcConfigurer {
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY)
 
         return objectMapper
+    }
+
+    override fun addCorsMappings(registry: CorsRegistry) {
+        registry.addMapping("/**")
+            .allowedOriginPatterns("*")
+            .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH")
+            .allowedHeaders("*")
+            .allowCredentials(true)
+            .maxAge(3600)
     }
 }
