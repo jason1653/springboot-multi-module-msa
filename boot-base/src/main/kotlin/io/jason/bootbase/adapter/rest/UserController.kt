@@ -1,7 +1,7 @@
 package io.jason.bootbase.adapter.rest
 
-import io.jason.bootbase.application.port.`in`.CreateUserCommand
-import io.jason.bootbase.application.dto.CreateUserCommandDTO
+import io.jason.bootbase.application.dto.CreateUserCommandRequest
+import io.jason.bootbase.application.dto.CreateUserCommandResponse
 import io.jason.bootbase.application.port.`in`.UserCommandUseCase
 import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.ResponseEntity
@@ -16,8 +16,8 @@ class UserController(
     private val userCommandUseCase: UserCommandUseCase
 ) {
     @PostMapping
-    fun createUser(): ResponseEntity<BaseResponse<CreateUserCommandDTO>> {
-        val command = CreateUserCommand(
+    fun createUser(): ResponseEntity<BaseResponse<CreateUserCommandResponse>> {
+        val command = CreateUserCommandRequest(
             userId = "test"
         )
         return userCommandUseCase.createUser(command)
