@@ -18,24 +18,26 @@ import java.nio.file.AccessDeniedException
 @Service
 class UserService(
     private val userServiceAdapterPort: UserServiceAdapterPort,
-//    private val passwordEncoder: PasswordEncoder
+    private val passwordEncoder: PasswordEncoder
 ) : UserServiceUseCase {
 
     @Transactional(rollbackOn = [BaseException::class])
     override fun createUser(command: CreateUserCommandRequest): BaseResponse<CreateUserCommandResponse> {
 
         val existsUserId = userServiceAdapterPort.existsByUserId(command.userId)
-        if(!existsUserId) {
-            throw BaseException(UserException.NOT_EXISTS_USER)
+        if(existsUserId) {
+            throw BaseException(UserException.NOT_EXISTS_USERID)
         }
 
-//        val password = passwordEncoder.encode(command.userPassword)
+        val password = passwordEncoder.encode(command.userPassword)
         val user = User().apply {
             userId = command.userId
             userName = command.userName
             pwd = "test"
             email = "test@email.com"
         }
+
+//        val userModel = userServiceAdapterPort.saveByUser(user)
 
 
 
