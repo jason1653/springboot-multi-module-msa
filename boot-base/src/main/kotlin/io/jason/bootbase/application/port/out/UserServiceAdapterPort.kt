@@ -1,11 +1,11 @@
 package io.jason.bootbase.application.port.out
 
-import io.jason.bootbase.adapter.persistence.entity.UserEntity
-import io.jason.bootbase.application.domain.model.User
+import io.jason.bootbase.adapter.persistence.entity.User
+import io.jason.bootbase.application.domain.model.UserModel
 
 interface UserServiceAdapterPort {
     fun existsByUserId(userId: String): Boolean
 
-    fun saveByUser(userEntity: UserEntity): User
+    fun saveByUser(user: User): UserModel
 
 }

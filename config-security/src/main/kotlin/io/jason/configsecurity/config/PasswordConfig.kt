@@ -8,10 +8,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc
 
 
 @Configuration
-@EnableWebMvc
 class PasswordConfig {
     @Bean
-    fun passwordEncoder(): PasswordEncoder {
+    fun passwordEncoder(): BCryptPasswordEncoder {
         return BCryptPasswordEncoder()
     }
 }

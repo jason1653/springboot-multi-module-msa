@@ -1,6 +1,7 @@
 package io.jason.bootbase.application.domain.model
 
-data class User(
+
+data class UserModel(
     val id: Long,
     val userId: String,
     val userName: String,
