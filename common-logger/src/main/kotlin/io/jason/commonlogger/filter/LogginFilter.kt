@@ -41,6 +41,8 @@ class LogginFilter : Filter {
         val duration = endTime - startTime
 
         logger.info("[Controller - E] ---------- [${req.method}] ${req.requestURI} ---------- $duration ms")
+
+
     }
 
 }

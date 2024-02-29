@@ -7,10 +7,10 @@ import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.ComponentScans
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["io.jason.**"])
 @EntityScan
-@ComponentScans
-@EnableJpaRepositories(basePackages = ["io.jason.bootbase.adapter.persistence.repository"])
+@ComponentScan(basePackages = ["io.jason"])
+@EnableJpaRepositories
 class BootBaseApplication
 
 fun main(args: Array<String>) {
