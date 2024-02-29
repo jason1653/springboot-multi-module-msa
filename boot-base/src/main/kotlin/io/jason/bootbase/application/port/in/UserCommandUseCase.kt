@@ -6,5 +6,5 @@ import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.ResponseEntity
 
 interface UserCommandUseCase {
-    fun createUser(command: CreateUserCommandRequest): ResponseEntity<BaseResponse<CreateUserCommandResponse>>
+    fun createUser(command: CreateUserCommandRequest)
 }

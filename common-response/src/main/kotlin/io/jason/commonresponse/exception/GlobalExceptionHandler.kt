@@ -3,6 +3,7 @@ package io.jason.commonresponse.exception
 import io.jason.commonresponse.enums.ExceptionEnum
 import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.HttpStatus
+import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -22,7 +23,9 @@ class GlobalExceptionHandler {
         val response = BaseResponse.fail(
             ExceptionEnum.ACCESS_DENIED_EXCEPTION,
         )
-        return response
+
+
+        return ResponseEntity(response, HttpStatusCode.valueOf(response.status))
     }
 
     /**
@@ -35,7 +38,7 @@ class GlobalExceptionHandler {
         val response = BaseResponse.fail(
             ExceptionEnum.NULL_POINTER_EXCEPTION,
         )
-        return response
+        return ResponseEntity(response, HttpStatusCode.valueOf(response.status))
     }
 
 
@@ -51,7 +54,7 @@ class GlobalExceptionHandler {
             messageList.joinToString(", ")
         )
 
-        return response
+        return ResponseEntity(response, HttpStatusCode.valueOf(response.status))
     }
 
 

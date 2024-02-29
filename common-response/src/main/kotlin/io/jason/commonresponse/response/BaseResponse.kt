@@ -16,40 +16,32 @@ class BaseResponse<T>(
 
 
     companion object {
-        fun <T> success(status: BaseResponseSuccessEnum, body: T, message: Any = "", code: String = ""): ResponseEntity<BaseResponse<T>> {
-            return ResponseEntity(
-                BaseResponse(
-                    code = code,
-                    message = message,
-                    status = status.httpStatus.value(),
-                    body = body,
-                ),
-                status.httpStatus
+        fun <T> success(status: BaseResponseSuccessEnum, body: T, message: Any = "", code: String = ""): BaseResponse<T> {
+            return BaseResponse(
+                code = code,
+                message = message,
+                status = status.httpStatus.value(),
+                body = body,
             )
         }
 
-        fun fail(baseError: BaseError): ResponseEntity<BaseResponse<String>> {
-            return ResponseEntity(
-                BaseResponse(
+        fun fail(baseError: BaseError): BaseResponse<String> {
+            return BaseResponse(
                     code = baseError.code,
                     message = baseError.message,
                     status = baseError.status.value(),
                     body = "",
-                ),
-                baseError.status
-            )
+                )
         }
 
-        fun fail(status: HttpStatus, message: Any, code: String = ""): ResponseEntity<BaseResponse<String>> {
-            return ResponseEntity(
-                BaseResponse(
-                    code = code,
-                    message = message,
-                    status = status.value(),
-                    body = "",
-                ),
-                status
+        fun fail(status: HttpStatus, message: Any, code: String = ""): BaseResponse<String> {
+            return BaseResponse(
+                code = code,
+                message = message,
+                status = status.value(),
+                body = "",
             )
+
         }
     }
 
