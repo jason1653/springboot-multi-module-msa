@@ -11,7 +11,14 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserCommandService : UserCommandUseCase {
-    override fun createUser(command: CreateUserCommandRequest) {
-
+    override fun createUser(command: CreateUserCommandRequest): BaseResponse<CreateUserCommandResponse> {
+        return BaseResponse.success(
+            status = BaseResponseSuccessEnum.CREATED,
+            body = CreateUserCommandResponse(
+                id = 0L,
+                userId = command.userId,
+                userName = "test"
+            )
+        )
     }
 }

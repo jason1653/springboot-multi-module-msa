@@ -3,7 +3,6 @@ package io.jason.commonresponse.response
 import io.jason.commonresponse.enums.BaseResponseSuccessEnum
 import io.jason.commonresponse.exception.BaseError
 import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 
 
 class BaseResponse<T>(
