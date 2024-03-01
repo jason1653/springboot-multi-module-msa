@@ -9,6 +9,7 @@ import io.jason.bootbase.application.port.out.UserServiceAdapterPort
 import io.jason.commonresponse.enums.BaseResponseSuccessEnum
 import io.jason.commonresponse.exception.BaseException
 import io.jason.commonresponse.response.BaseResponse
+import io.jason.commonutils.crypto.AesCryptoUtil
 import jakarta.transaction.Transactional
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
@@ -17,7 +18,8 @@ import org.springframework.stereotype.Service
 @Service
 class UserService(
     private val userServiceAdapterPort: UserServiceAdapterPort,
-    private val passwordEncoder: PasswordEncoder
+    private val cryptoUtil: AesCryptoUtil,
+    private val passwordEncoder: PasswordEncoder,
 ) : UserServiceUseCase {
 
     @Transactional(rollbackOn = [BaseException::class])
