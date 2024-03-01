@@ -1,5 +1,6 @@
 package io.jason.bootbase.adapter.rest
 
+import io.jason.bootbase.application.domain.model.UserModel
 import io.jason.bootbase.application.dto.CreateUserCommandRequest
 import io.jason.bootbase.application.dto.CreateUserCommandResponse
 import io.jason.bootbase.application.port.`in`.UserServiceUseCase
@@ -22,8 +23,8 @@ class UserController(
 ) {
 
     @PostMapping
-    fun createUser(@RequestBody request: CreateUserCommandRequest): RestResponse<CreateUserCommandResponse> {
-        return RestResponse(userCommandUseCase.createUser(request))
+    fun createUser(@RequestBody request: CreateUserCommandRequest): ResponseEntity<BaseResponse<UserModel>> {
+        return RestResponse(userCommandUseCase.createUser(request)).toResponseEntity()
     }
 
 }

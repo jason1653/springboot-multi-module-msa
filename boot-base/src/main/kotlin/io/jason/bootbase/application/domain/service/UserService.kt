@@ -1,6 +1,7 @@
 package io.jason.bootbase.application.domain.service
 
 import io.jason.bootbase.adapter.persistence.entity.User
+import io.jason.bootbase.application.domain.model.UserModel
 import io.jason.bootbase.application.dto.CreateUserCommandRequest
 import io.jason.bootbase.application.dto.CreateUserCommandResponse
 import io.jason.bootbase.application.exception.UserException
@@ -22,7 +23,7 @@ class UserService(
 ) : UserServiceUseCase {
 
     @Transactional(rollbackOn = [BaseException::class])
-    override fun createUser(command: CreateUserCommandRequest): BaseResponse<CreateUserCommandResponse> {
+    override fun createUser(command: CreateUserCommandRequest): BaseResponse<UserModel> {
 
         val existsUserId = userServiceAdapterPort.existsByUserId(command.userId)
         if(existsUserId) {
@@ -37,17 +38,13 @@ class UserService(
             email = "test@email.com"
         }
 
-//        val userModel = userServiceAdapterPort.saveByUser(user)
+        val userModel = userServiceAdapterPort.saveByUser(user)
 
 
 
         return BaseResponse.success(
             status = BaseResponseSuccessEnum.CREATED,
-            body = CreateUserCommandResponse(
-                id = 0L,
-                userId = command.userId,
-                userName = "test"
-            )
+            body = userModel
         )
     }
 }
