@@ -7,9 +7,9 @@ spring:
     name: boot-base
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.0.244:3306/prlo?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-    username: pgsystem
-    password: pgsystem7587!
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: jason
+    password: jason1234
   jpa:
     hibernate:
       ddl-auto: create

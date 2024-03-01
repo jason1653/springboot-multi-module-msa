@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+      MYSQL_USER: jason
+      MYSQL_PASSWORD: jason1234
+    ports:
+      - "3306:3306"
+    volumes:
+        - ./mysql:/var/lib/mysql
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: jason
+      MONGO_INITDB_ROOT_PASSWORD: jason1234
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb:/data/db
