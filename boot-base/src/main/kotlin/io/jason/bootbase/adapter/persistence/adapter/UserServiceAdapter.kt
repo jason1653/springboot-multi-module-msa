@@ -9,7 +9,7 @@ import io.jason.commonutils.annotation.PersistenceAdapter
 
 
 @PersistenceAdapter
-class UserServiceAdapterAdapter(
+class UserServiceAdapter(
     private val userRepository: UserRepository
 ) : UserServiceAdapterPort {
 

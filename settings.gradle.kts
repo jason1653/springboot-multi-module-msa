@@ -10,7 +10,6 @@ include("config-jpa")
 include("config-security")
 
 
-include("common-base-model")
 include("common-logger")
 include("common-utils")
 include("common-response")
