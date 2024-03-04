@@ -5,6 +5,7 @@ import io.jason.commonresponse.response.BaseResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
+import org.springframework.http.converter.HttpMessageNotReadableException
 import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
@@ -41,6 +42,16 @@ class GlobalExceptionHandler {
         return ResponseEntity(response, HttpStatusCode.valueOf(response.status))
     }
 
+
+    @ExceptionHandler(HttpMessageNotReadableException::class)
+    fun handleHttpMessageNotReadableException(ex: HttpMessageNotReadableException): ResponseEntity<BaseResponse<String>> {
+        val response = BaseResponse.fail(
+            HttpStatus.BAD_REQUEST,
+            "잘못된 요청입니다."
+        )
+
+        return ResponseEntity(response, HttpStatusCode.valueOf(response.status))
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException::class)
     fun handleMethodArgumentNotValidException(ex: MethodArgumentNotValidException): ResponseEntity<BaseResponse<String>> {

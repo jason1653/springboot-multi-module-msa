@@ -6,6 +6,7 @@ import io.jason.bootproduct.adapter.persisence.repository.ProductRepository
 import io.jason.bootproduct.application.domain.model.ProductModel
 import io.jason.bootproduct.application.port.out.ProductServiceAdapterPort
 import io.jason.commonutils.annotation.PersistenceAdapter
+import org.springframework.data.mongodb.core.MongoTemplate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.random.Random
@@ -13,7 +14,7 @@ import kotlin.random.Random
 
 @PersistenceAdapter
 class ProductServiceAdapter(
-//    private val productRepository: ProductRepository
+    private val productRepository: ProductRepository,
 ) : ProductServiceAdapterPort {
     private fun createProductId(): String {
         val now = LocalDateTime.now()
@@ -26,12 +27,12 @@ class ProductServiceAdapter(
         return "${formatted}${randomNumber}"
     }
 
-    override fun saveProduct(product: Product) {
+    override fun saveProduct(product: Product): ProductModel {
 
-//        val productId = createProductId()
-//        product.productId = productId
-//
-//        val productData = productRepository.save(product)
-//        return ProductMapper().toModel(productData)
+        val productId = createProductId()
+        product.productId = productId
+
+        val productData = productRepository.save(product)
+        return ProductMapper().toModel(productData)
     }
 }

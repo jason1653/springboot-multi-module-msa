@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ProductRepository : MongoRepository<Product, String> {
-    fun existsProductEntityByProductId(productId: String): Boolean
 }

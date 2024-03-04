@@ -5,5 +5,5 @@ import io.jason.bootproduct.application.domain.model.ProductModel
 
 interface ProductServiceAdapterPort {
 
-    fun saveProduct(product: Product)
+    fun saveProduct(product: Product): ProductModel
 }

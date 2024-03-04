@@ -3,7 +3,9 @@ package io.jason.bootproduct.adapter.persisence.mapper
 import io.jason.bootproduct.adapter.persisence.entity.Product
 import io.jason.bootproduct.application.domain.model.ProductModel
 import io.jason.commonutils.mapper.MapperConverter
+import org.springframework.stereotype.Component
 
+@Component
 class ProductMapper: MapperConverter<Product, ProductModel>() {
     override fun toModel(entity: Product): ProductModel {
         return ProductModel(
