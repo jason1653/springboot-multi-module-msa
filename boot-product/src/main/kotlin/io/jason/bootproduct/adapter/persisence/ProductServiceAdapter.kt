@@ -13,7 +13,7 @@ import kotlin.random.Random
 
 @PersistenceAdapter
 class ProductServiceAdapter(
-    private val productRepository: ProductRepository
+//    private val productRepository: ProductRepository
 ) : ProductServiceAdapterPort {
     private fun createProductId(): String {
         val now = LocalDateTime.now()
@@ -26,12 +26,12 @@ class ProductServiceAdapter(
         return "${formatted}${randomNumber}"
     }
 
-    override fun saveProduct(product: Product): ProductModel {
+    override fun saveProduct(product: Product) {
 
-        val productId = createProductId()
-        product.productId = productId
-
-        val productData = productRepository.save(product)
-        return ProductMapper().toModel(productData)
+//        val productId = createProductId()
+//        product.productId = productId
+//
+//        val productData = productRepository.save(product)
+//        return ProductMapper().toModel(productData)
     }
 }

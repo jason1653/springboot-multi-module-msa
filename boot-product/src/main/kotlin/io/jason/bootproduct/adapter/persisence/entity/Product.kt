@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 class Product {
     @Id
     var productId: String = ""
-    val productName: String = ""
-    val productPrice: Double = 0.0
-    val productDescription: String = ""
+    var productName: String = ""
+    var productPrice: Double = 0.0
+    var productDescription: String = ""
 }
