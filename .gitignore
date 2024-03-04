@@ -44,3 +44,4 @@ out/
 /**/gradle/wrapper/gradle-wrapper.jar
 /**/gradle/wrapper/gradle-wrapper.properties
 /docker/
+/**/src/main/resources/jasypt.yml

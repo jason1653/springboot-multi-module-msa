@@ -8,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec
 
 const val AES_INSTANCE = "AES/ECB/PKCS5Padding"
 
-/*
+
 @Component
 class AesCryptoUtilImpl(
     @Value("\${aes.key}")
@@ -64,6 +64,14 @@ class AesCryptoUtilImpl(
         }
     }
 
+    override fun aesEncrypt(str: String): String? {
+        TODO("Not yet implemented")
+    }
+
+    override fun createKey(length: Int): String {
+        TODO("Not yet implemented")
+    }
+
     override fun aesDecrypt(
         str: String,
         key: String,
@@ -83,4 +91,3 @@ class AesCryptoUtilImpl(
     }
 
 }
- */

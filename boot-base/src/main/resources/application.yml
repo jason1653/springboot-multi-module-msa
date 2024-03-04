@@ -3,13 +3,16 @@ server:
 
 
 spring:
+  config:
+    import:
+      - jasypt.yml
   application:
     name: boot-base
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/test?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-    username: jason
-    password: jason1234
+    username: ENC(cWkTK+UZ0bF37PVwTUOL3w==)
+    password: ENC(hBUNHfN+4QfakqGISRfKRKx9+Ipjyr15)
   jpa:
     hibernate:
       ddl-auto: create
