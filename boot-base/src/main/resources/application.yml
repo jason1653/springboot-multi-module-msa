@@ -19,6 +19,7 @@ spring:
     import:
       - jasypt.yml
       - aes.yml
+      - kafka.yml
 
 ---
 spring:

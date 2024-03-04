@@ -1,4 +1,4 @@
-package io.jason.bootbase.adapter.persistence.entity
+package io.jason.bootbase.adapter.out.persistence.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity

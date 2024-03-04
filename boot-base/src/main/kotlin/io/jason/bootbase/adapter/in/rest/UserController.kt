@@ -1,4 +1,4 @@
-package io.jason.bootbase.adapter.rest
+package io.jason.bootbase.adapter.`in`.rest
 
 import io.jason.bootbase.application.domain.model.UserModel
 import io.jason.bootbase.application.dto.CreateUserCommandDTO

@@ -1,6 +1,6 @@
 package io.jason.bootbase.application.domain.service
 
-import io.jason.bootbase.adapter.persistence.entity.User
+import io.jason.bootbase.adapter.out.persistence.entity.User
 import io.jason.bootbase.application.domain.model.UserModel
 import io.jason.bootbase.application.dto.CreateUserCommandDTO
 import io.jason.bootbase.application.exception.UserException

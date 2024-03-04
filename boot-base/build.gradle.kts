@@ -7,9 +7,6 @@ tasks.getByName("jar").enabled = false
 
 
 dependencies {
-
-
-
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("com.mysql:mysql-connector-j:8.3.0")
@@ -18,6 +15,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
     implementation("com.querydsl:querydsl-jpa:$querydslVersion:jakarta")
+
+    implementation("org.springframework.kafka:spring-kafka:3.1.2")
+
     kapt("com.querydsl:querydsl-apt:$querydslVersion:jakarta")
 
 

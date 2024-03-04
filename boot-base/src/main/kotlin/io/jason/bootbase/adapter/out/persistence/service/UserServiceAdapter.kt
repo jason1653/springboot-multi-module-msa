@@ -1,8 +1,8 @@
-package io.jason.bootbase.adapter.persistence
+package io.jason.bootbase.adapter.out.persistence.service
 
-import io.jason.bootbase.adapter.persistence.entity.User
-import io.jason.bootbase.adapter.persistence.mapper.UserMapper
-import io.jason.bootbase.adapter.persistence.repository.UserRepository
+import io.jason.bootbase.adapter.out.persistence.entity.User
+import io.jason.bootbase.adapter.out.persistence.mapper.UserMapper
+import io.jason.bootbase.adapter.out.persistence.repository.UserRepository
 import io.jason.bootbase.application.domain.model.UserModel
 import io.jason.bootbase.application.port.out.UserServiceAdapterPort
 import io.jason.commonutils.annotation.PersistenceAdapter

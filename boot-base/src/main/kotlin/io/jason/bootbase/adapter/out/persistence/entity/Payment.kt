@@ -1,4 +1,4 @@
-package io.jason.bootbase.adapter.persistence.entity
+package io.jason.bootbase.adapter.out.persistence.entity
 
 import jakarta.persistence.*
 import org.hibernate.annotations.GeneratedColumn

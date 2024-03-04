@@ -1,6 +1,6 @@
-package io.jason.bootbase.adapter.persistence.repository
+package io.jason.bootbase.adapter.out.persistence.repository
 
-import io.jason.bootbase.adapter.persistence.entity.User
+import io.jason.bootbase.adapter.out.persistence.entity.User
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
