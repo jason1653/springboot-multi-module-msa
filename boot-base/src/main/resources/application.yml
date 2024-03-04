@@ -6,6 +6,19 @@ spring:
     name: boot-base
   profiles:
     active: local
+    group:
+      local: common
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: common
+    import:
+      - jasypt.yml
+      - aes.yml
 
 ---
 spring:
@@ -13,7 +26,6 @@ spring:
     activate:
       on-profile: local
     import:
-      - jasypt.yml
       - db-local.yml
 
 ---
@@ -22,7 +34,6 @@ spring:
     activate:
       on-profile: dev
     import:
-        - jasypt.yml
         - db-dev.yml
 
 ---
@@ -31,9 +42,7 @@ spring:
     activate:
       on-profile: prod
     import:
-        - jasypt.yml
         - db-prod.yml
 
 
-aes:
-  key: "Test1234"
+
