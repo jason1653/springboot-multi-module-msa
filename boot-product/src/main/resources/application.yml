@@ -1,0 +1,49 @@
+
+server:
+  port: 8082
+
+spring:
+  application:
+    name: boot-product
+  profiles:
+    active: local
+    group:
+      local: common
+
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: common
+    import:
+      - jasypt.yml
+      - aes.yml
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import:
+      - db-local.yml
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    import:
+      - db-dev.yml
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+    import:
+      - db-prod.yml
+
+
+

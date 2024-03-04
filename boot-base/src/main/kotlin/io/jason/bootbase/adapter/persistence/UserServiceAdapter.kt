@@ -1,4 +1,4 @@
-package io.jason.bootbase.adapter.persistence.adapter
+package io.jason.bootbase.adapter.persistence
 
 import io.jason.bootbase.adapter.persistence.entity.User
 import io.jason.bootbase.adapter.persistence.mapper.UserMapper
