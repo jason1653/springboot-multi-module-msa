@@ -1,8 +1,9 @@
 package io.jason.bootproduct.application.port.`in`
 
-import io.jason.bootproduct.application.domain.model.ProductModel
-import io.jason.bootproduct.application.dto.CreateProductDTO
+import io.jason.bootproduct.adapter.out.persisence.entity.Product
+import io.jason.bootproduct.application.core.domain.ProductModel
+import io.jason.commonresponse.response.BaseResponse
 
 interface ProductServiceUseCase {
-    fun createProduct(createProductDTO: CreateProductDTO): ProductModel
+    fun createProduct(product: Product): BaseResponse<ProductModel>
 }

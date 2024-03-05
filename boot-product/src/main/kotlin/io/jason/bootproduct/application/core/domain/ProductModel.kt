@@ -1,8 +1,8 @@
-package io.jason.bootproduct.application.domain.model
+package io.jason.bootproduct.application.core.domain
 
 data class ProductModel(
     val productId: String,
     val productName: String,
-    val productPrice: Double,
+    val productPrice: Long,
     val productDescription: String
 )

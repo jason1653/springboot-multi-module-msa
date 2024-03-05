@@ -12,12 +12,15 @@ data class Payment(
     val paymentId: Long = 0L,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PRODUCT_ID")
-    val productId: Product? = null,
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "UID")
     val uid: User? = null,
+
+    @Column(name = "PRODUCT_ID")
+    val productId: String = "",
+
+
+    @Column(name = "PRODUCT_NAME")
+    val productName: String = "",
 
     @Column(name = "PAYMENT_AMOUNT")
     val paymentAmount: Double = 0.0

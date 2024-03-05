@@ -1,6 +1,6 @@
-package io.jason.bootproduct.application.dto
+package io.jason.bootproduct.adapter.`in`.controller.dto
 
-data class CreateProductDTO(
+data class CreateProductRequestDto (
     val productName: String,
     val productPrice: Double,
     val productDescription: String

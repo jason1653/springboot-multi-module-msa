@@ -1,12 +1,11 @@
-package io.jason.bootproduct.adapter.persisence
+package io.jason.bootproduct.adapter.out.persisence
 
-import io.jason.bootproduct.adapter.persisence.entity.Product
-import io.jason.bootproduct.adapter.persisence.mapper.ProductMapper
-import io.jason.bootproduct.adapter.persisence.repository.ProductRepository
-import io.jason.bootproduct.application.domain.model.ProductModel
+import io.jason.bootproduct.adapter.out.persisence.entity.Product
+import io.jason.bootproduct.adapter.out.persisence.mapper.ProductMapper
+import io.jason.bootproduct.adapter.out.persisence.repository.ProductRepository
+import io.jason.bootproduct.application.core.domain.ProductModel
 import io.jason.bootproduct.application.port.out.ProductServiceAdapterPort
 import io.jason.commonutils.annotation.PersistenceAdapter
-import org.springframework.data.mongodb.core.MongoTemplate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.random.Random
@@ -34,5 +33,9 @@ class ProductServiceAdapter(
 
         val productData = productRepository.save(product)
         return ProductMapper().toModel(productData)
+    }
+
+    override fun findById(productId: String): Product? {
+        return productRepository.findById(productId).orElse(null)
     }
 }

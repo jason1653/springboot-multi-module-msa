@@ -9,6 +9,7 @@ include("boot-payment")
 
 include("config-jpa")
 include("config-security")
+include("config-kafka")
 
 
 include("common-logger")

@@ -1,7 +1,7 @@
-package io.jason.bootproduct.adapter.persisence.mapper
+package io.jason.bootproduct.adapter.out.persisence.mapper
 
-import io.jason.bootproduct.adapter.persisence.entity.Product
-import io.jason.bootproduct.application.domain.model.ProductModel
+import io.jason.bootproduct.adapter.out.persisence.entity.Product
+import io.jason.bootproduct.application.core.domain.ProductModel
 import io.jason.commonutils.mapper.MapperConverter
 import org.springframework.stereotype.Component
 
