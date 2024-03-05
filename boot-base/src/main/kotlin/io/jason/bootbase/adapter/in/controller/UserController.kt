@@ -1,9 +1,8 @@
 package io.jason.bootbase.adapter.`in`.controller
 
-import io.jason.bootbase.adapter.`in`.controller.request.CreateUserRequest
+import io.jason.bootbase.adapter.`in`.controller.dto.CreateUserRequestDto
 import io.jason.bootbase.adapter.out.persistence.entity.User
-import io.jason.bootbase.application.core.domain.CreateUserModel
-import io.jason.bootbase.application.core.domain.UserModel
+import io.jason.bootbase.application.core.dto.CreateUserResponseDto
 import io.jason.bootbase.application.port.`in`.UserServiceUseCase
 import io.jason.commonresponse.response.BaseResponse
 import io.jason.commonresponse.response.RestResponse
@@ -19,7 +18,7 @@ class UserController(
 ) {
 
     @PostMapping
-    fun createUser(@RequestBody request: CreateUserRequest): ResponseEntity<BaseResponse<CreateUserModel>> {
+    fun createUser(@RequestBody request: CreateUserRequestDto): ResponseEntity<BaseResponse<CreateUserResponseDto>> {
         val userEntity = User().apply {
             userId = request.userId
             userName = request.userName

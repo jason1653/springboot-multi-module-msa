@@ -1,6 +1,6 @@
-package io.jason.bootbase.adapter.`in`.controller.request
+package io.jason.bootbase.adapter.`in`.controller.dto
 
-data class CreateUserRequest (
+data class CreateUserRequestDto (
     val userId: String = "",
     val userName: String = "",
     val userPassword: String = "",

@@ -1,6 +1,6 @@
-package io.jason.bootbase.application.core.domain
+package io.jason.bootbase.application.core.dto
 
-data class CreateUserModel(
+data class CreateUserResponseDto(
     val id: Long,
     val userId: String,
     val userName: String,

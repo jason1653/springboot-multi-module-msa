@@ -1,8 +1,7 @@
 package io.jason.bootbase.application.core.usecase
 
 import io.jason.bootbase.adapter.out.persistence.entity.User
-import io.jason.bootbase.application.core.domain.CreateUserModel
-import io.jason.bootbase.application.core.domain.UserModel
+import io.jason.bootbase.application.core.dto.CreateUserResponseDto
 import io.jason.bootbase.application.core.exception.UserException
 import io.jason.bootbase.application.port.`in`.UserServiceUseCase
 import io.jason.bootbase.application.port.out.UserServiceAdapterPort
@@ -26,7 +25,7 @@ class UserService(
 ) : UserServiceUseCase {
 
     @Transactional(rollbackOn = [BaseException::class])
-    override fun createUser(user: User): BaseResponse<CreateUserModel> {
+    override fun createUser(user: User): BaseResponse<CreateUserResponseDto> {
 
 
         val existsUserId = userServiceAdapterPort.existsByUserId(user.userId)
@@ -41,7 +40,7 @@ class UserService(
         val refreshToken = jwt.generateToken(userModel.userId, userModel, Duration.ofHours(24))
 
 
-        val createUserModel = CreateUserModel(
+        val createUserResponseDto = CreateUserResponseDto(
             id = userModel.id,
             userId = userModel.userId,
             userName = userModel.userName,
@@ -54,7 +53,7 @@ class UserService(
 
         return BaseResponse.success(
             status = BaseResponseSuccessEnum.CREATED,
-            body = createUserModel
+            body = createUserResponseDto
         )
     }
 }
