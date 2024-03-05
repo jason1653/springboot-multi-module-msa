@@ -1,7 +1,7 @@
 package io.jason.bootbase.adapter.out.persistence.mapper
 
 import io.jason.bootbase.adapter.out.persistence.entity.User
-import io.jason.bootbase.application.domain.model.UserModel
+import io.jason.bootbase.application.core.domain.UserModel
 import io.jason.commonutils.mapper.MapperConverter
 import org.springframework.stereotype.Component
 

@@ -1,4 +1,4 @@
-package io.jason.bootbase.application.domain.model
+package io.jason.bootbase.application.core.domain
 
 
 data class UserModel(

@@ -28,7 +28,7 @@ data class User(
     var registDatetime: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "UPDATE_DATETIME")
-    var updateDatetime: LocalDateTime = LocalDateTime.now()
+    var updateDatetime: LocalDateTime = LocalDateTime.now(),
 
 ) {
 
